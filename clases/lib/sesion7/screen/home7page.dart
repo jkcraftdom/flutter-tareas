@@ -1,4 +1,8 @@
 import 'package:app_sesion4/sesion7/screen/retouipage.dart';
+import 'package:app_sesion4/sesion7/screen/scrolltiktok.dart';
+import 'package:app_sesion4/sesion7/screen/scrolltiktokTarea.dart';
+import 'package:app_sesion4/sesion7/screen/sesion7.dart';
+import 'package:app_sesion4/sesion7/screen/sesion7Tarea.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,7 +21,14 @@ class Home7Page extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ButtonWidget(text: 'Clase', onPressed: () {}),
+                ButtonWidget(
+                    text: 'Clase',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Sesion7()));
+                    }),
                 ButtonWidget(
                     text: 'Reto',
                     onPressed: () {
@@ -25,6 +36,31 @@ class Home7Page extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => const RetoUIPage()));
+                    }),
+                ButtonWidget(
+                    text: 'Scroll',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ScrollTiktokPage()));
+                    }),
+                ButtonWidget(
+                    text: 'Plantilla',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Sesion7Tarea()));
+                    }),
+                ButtonWidget(
+                    text: 'Scroll tarea',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const ScrollTiktokTareaPage()));
                     }),
               ])),
     );
