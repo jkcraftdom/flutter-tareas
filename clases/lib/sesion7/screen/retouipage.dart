@@ -1,5 +1,6 @@
 import 'package:app_sesion4/sesion7/screen/retoui/reto1.dart';
 import 'package:app_sesion4/sesion7/screen/retoui/reto2.dart';
+import 'package:app_sesion4/sesion7/screen/retoui/reto3.dart';
 import 'package:app_sesion4/widgetsdemo.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,14 @@ class RetoUIPage extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Reto2UI()));
+                    }),
+                ButtonWidget(
+                    text: 'Reto 3',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Reto3UI()));
                     }),
               ])),
     );
