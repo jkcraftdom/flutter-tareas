@@ -19,31 +19,34 @@ class Reto8SecondPage extends StatelessWidget {
                 image: NetworkImage(
                   'https://www.renfe-sncf.com/es-es/blog/PublishingImages/curiosidades-paris-torre-eiffel/curiosidades_paris_torre_eiffel.jpg',
                 ))),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  CircleButtonWidget(
-                    icon: Icons.chevron_left,
-                  ),
-                  CircleButtonWidget(
-                    icon: Icons.more_vert,
-                  ),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    CircleButtonWidget(
+                      icon: Icons.chevron_left,
+                    ),
+                    CircleButtonWidget(
+                      icon: Icons.more_vert,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40))),
-              child: SingleChildScrollView(
+              const SizedBox(
+                height: 90,
+              ),
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -215,9 +218,9 @@ class Reto8SecondPage extends StatelessWidget {
                     )
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
