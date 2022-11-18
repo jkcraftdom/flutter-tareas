@@ -1,16 +1,17 @@
-import 'package:app_sesion4/sesion8/screen/clase8.dart';
-import 'package:app_sesion4/sesion8/screen/clase8Tarea.dart';
-import 'package:app_sesion4/sesion8/screen/retoui/homeReto8.dart';
+import 'package:app_sesion4/sesion9/screen/clase9flur.dart';
+import 'package:app_sesion4/sesion9/screen/reto9.dart';
 import 'package:app_sesion4/widgetsdemo.dart';
 import 'package:flutter/material.dart';
 
-class Home8Page extends StatelessWidget {
-  const Home8Page({super.key});
+class Home9Page extends StatelessWidget {
+  const Home9Page({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sesion 8'), centerTitle: true, elevation: 0),
+      appBar: AppBar(
+        title: const Text('Sesion 9'),
+      ),
       body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -22,15 +23,15 @@ class Home8Page extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Reto8UIPage()));
+                              builder: (context) => const Reto9Page()));
                     }),
                 ButtonWidget(
-                    text: 'Clase',
+                    text: 'Clase Blur',
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Clase8Page()));
+                              builder: (context) => const BlurScreen()));
                     }),
                 ButtonWidget(
                     text: 'Clase - Tarea',
@@ -38,7 +39,7 @@ class Home8Page extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Clase8Tarea()));
+                              builder: (context) => const BlurScreen()));
                     }),
               ])),
     );
