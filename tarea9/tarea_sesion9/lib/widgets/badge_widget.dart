@@ -14,14 +14,12 @@ class BadgeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 9,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(14)),
       child: TextWidget(
         text: text,
-        size: 18,
+        size: 16,
       ),
     );
   }

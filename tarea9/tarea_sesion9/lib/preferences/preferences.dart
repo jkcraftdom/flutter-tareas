@@ -93,4 +93,8 @@ class Preferences {
   static String get genderText {
     return Preferences.gender == 1 ? 'Male' : 'Female';
   }
+
+  static String get backgroundImage {
+    return 'https://img.freepik.com/free-vector/abstract-business-professional-background-banner-design-multipurpose_1340-16858.jpg?w=1380&t=st=1668902819~exp=1668903419~hmac=812fa7b83629c20c8c62a7836890a8261cc3fd875f42033b71cb8466196089a7';
+  }
 }

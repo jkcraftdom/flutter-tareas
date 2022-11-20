@@ -7,6 +7,7 @@ class UserWidget extends StatelessWidget {
   final String profession;
   final String img;
   final Axis? direction;
+  final double? radiusImage;
 
   const UserWidget({
     Key? key,
@@ -14,10 +15,13 @@ class UserWidget extends StatelessWidget {
     required this.profession,
     required this.img,
     this.direction = Axis.horizontal,
+    this.radiusImage = 50,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double increment = direction == Axis.vertical ? 40 : 22;
+
     return Flex(
       direction: direction!,
       crossAxisAlignment: direction == Axis.vertical
@@ -28,19 +32,20 @@ class UserWidget extends StatelessWidget {
           : MainAxisAlignment.center,
       children: [
         Container(
-          width: 72,
+          width: (radiusImage! + increment),
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white, width: 3)),
           child: (img == '')
-              ? const CircleAvatar(
-                  radius: 50,
+              ? CircleAvatar(
+                  radius: radiusImage,
                   child: Icon(
                     Icons.photo,
-                    size: 50,
+                    size: radiusImage,
                   ),
                 )
-              : CircleAvatar(radius: 36, backgroundImage: NetworkImage(img)),
+              : CircleAvatar(
+                  radius: radiusImage, backgroundImage: NetworkImage(img)),
         ),
         const VerticalDivider(),
         Column(
@@ -55,10 +60,13 @@ class UserWidget extends StatelessWidget {
               size: 18,
               color: Colors.white,
             ),
-            TextWidget(
-              text: profession,
-              size: 16,
-              color: Colors.white60,
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: TextWidget(
+                text: profession,
+                size: 16,
+                color: Colors.white60,
+              ),
             )
           ],
         )

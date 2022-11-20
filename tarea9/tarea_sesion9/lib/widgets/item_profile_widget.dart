@@ -20,26 +20,29 @@ class ItemProfileWidget extends StatelessWidget {
       children: [
         SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              FaIcon(
-                icon,
-                color: Colors.black54,
-                size: 28,
-              ),
-              const VerticalDivider(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextWidget(text: title, size: 16, color: Colors.black45),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  TextWidget(text: subtitle, size: 18, color: Colors.black54),
-                ],
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FaIcon(
+                  icon,
+                  color: Colors.black54,
+                  size: 28,
+                ),
+                const VerticalDivider(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextWidget(text: title, size: 16, color: Colors.black45),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    TextWidget(text: subtitle, size: 18, color: Colors.black54),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
         Container(
