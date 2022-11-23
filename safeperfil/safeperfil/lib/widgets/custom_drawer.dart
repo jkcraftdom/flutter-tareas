@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safeperfil/routes/route.dart';
 import 'package:safeperfil/screen/index.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
@@ -30,33 +31,36 @@ class CustomDrawerWidget extends StatelessWidget {
             leading: const Icon(Icons.home),
             title: const Text('Home'),
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacementNamed(context, MyRoutes.rHome);
+/*               Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const HomeScreen(),
-                  ));
+                  )); */
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Configuration'),
-            onTap: () {
-              Navigator.push(
+              leading: const Icon(Icons.settings),
+              title: const Text('Configuration'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, MyRoutes.rAjuste);
+/*               Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ConfigScreen(),
                   ));
-            },
-          ),
+            }, */
+              }),
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Mi Perfil'),
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacementNamed(context, MyRoutes.rPerfil);
+/*               Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const MiPerfilScreen(),
-                  ));
+                  )); */
             },
           ),
         ],

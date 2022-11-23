@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:safeperfil/preferences/preferences.dart';
+import 'package:safeperfil/providers/login_provider.dart';
+import 'package:safeperfil/providers/theme_provider.dart';
+import 'package:safeperfil/routes/route.dart';
 import 'screen/index.dart';
 
 void main() async {
@@ -7,7 +11,16 @@ void main() async {
 
   await Preferences.init();
 
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+          create: (_) => ThemeProvider(isDarkMode: Preferences.theme)),
+      ChangeNotifierProvider(
+        create: (_) => LoginProvider(),
+      )
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,11 +32,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: Provider.of<ThemeProvider>(context).currentTheme,
+/*       theme: ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.blue,
-      ),
-      home: const HomeScreen(),
+      ), */
+      onGenerateRoute: MyRoutes.generateRoute,
+      initialRoute: MyRoutes.rLogin,
     );
   }
 }

@@ -17,17 +17,13 @@ class MiPerfilScreen extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(20),
-            margin: EdgeInsets.only(bottom: 10),
+            margin: const EdgeInsets.only(bottom: 10),
             width: double.infinity,
             decoration: const BoxDecoration(
+              color: Colors.blue,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)),
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://cdn.pixabay.com/photo/2015/04/28/02/23/blue-742934_960_720.jpg'),
-                fit: BoxFit.cover,
-              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
