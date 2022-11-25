@@ -4,6 +4,8 @@ import 'package:safeperfil/preferences/preferences.dart';
 import 'package:safeperfil/providers/login_provider.dart';
 import 'package:safeperfil/providers/theme_provider.dart';
 import 'package:safeperfil/routes/route.dart';
+import 'package:safeperfil/services/index.dart';
+import 'package:safeperfil/services/service_auth.dart';
 import 'screen/index.dart';
 
 void main() async {
@@ -17,7 +19,8 @@ void main() async {
           create: (_) => ThemeProvider(isDarkMode: Preferences.theme)),
       ChangeNotifierProvider(
         create: (_) => LoginProvider(),
-      )
+      ),
+      ChangeNotifierProvider(create: (_) => AuthService())
     ],
     child: const MyApp(),
   ));
@@ -38,7 +41,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ), */
       onGenerateRoute: MyRoutes.generateRoute,
-      initialRoute: MyRoutes.rLogin,
+      initialRoute: MyRoutes.rVerify,
+      scaffoldMessengerKey: MsgAuth.msgkey,
     );
   }
 }

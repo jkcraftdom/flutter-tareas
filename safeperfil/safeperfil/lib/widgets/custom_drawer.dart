@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:safeperfil/routes/route.dart';
 import 'package:safeperfil/screen/index.dart';
+import 'package:safeperfil/services/service_auth.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   const CustomDrawerWidget({
@@ -9,6 +11,7 @@ class CustomDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context, listen: false);
     return Drawer(
       child: Column(
         children: [
@@ -61,6 +64,14 @@ class CustomDrawerWidget extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const MiPerfilScreen(),
                   )); */
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Cerrar sesion'),
+            onTap: () {
+              authService.logout();
+              Navigator.pushReplacementNamed(context, MyRoutes.rVerify);
             },
           ),
         ],

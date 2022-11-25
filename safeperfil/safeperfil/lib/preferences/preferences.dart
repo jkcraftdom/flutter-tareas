@@ -77,7 +77,9 @@ class Preferences {
 
   // theme
   static bool get theme {
-    return _prefs.getBool('theme') ?? _theme;
+    bool? value = _prefs.getBool('theme');
+
+    return value ?? _theme;
   }
 
   static set theme(bool theme) {

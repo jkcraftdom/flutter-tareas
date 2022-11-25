@@ -4,17 +4,16 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:safeperfil/providers/login_provider.dart';
 import 'package:safeperfil/routes/route.dart';
-import 'package:safeperfil/services/index.dart';
 import 'package:safeperfil/services/service_auth.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,16 +34,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Lottie.network(
                       'https://assets4.lottiefiles.com/packages/lf20_mjlh3hcy.json'),
                 ),
+                const Text('REGISTRO',
+                    style: TextStyle(fontSize: 28, color: Colors.white)),
                 ChangeNotifierProvider(
                   create: (context) => LoginProvider(),
-                  child: _loginForm(),
+                  child: _registerForm(),
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, MyRoutes.rRegister);
+                      Navigator.pushReplacementNamed(context, MyRoutes.rLogin);
                     },
-                    child: Text('Crear nueva cuenta'))
+                    child: Text('Iniciar Sesion'))
               ],
             ),
           ),
@@ -54,14 +54,14 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class _loginForm extends StatefulWidget {
-  const _loginForm({super.key});
+class _registerForm extends StatefulWidget {
+  const _registerForm({super.key});
 
   @override
-  State<_loginForm> createState() => _loginFormState();
+  State<_registerForm> createState() => _registerFormState();
 }
 
-class _loginFormState extends State<_loginForm> {
+class _registerFormState extends State<_registerForm> {
   bool _isPassword = true;
 
   void _viewPassword() {
@@ -149,17 +149,15 @@ class _loginFormState extends State<_loginForm> {
                             loginProvider.isLoading = true;
 
                             final String? errorMessage =
-                                await authService.login(loginProvider.email,
+                                await authService.createUser(
+                                    loginProvider.email,
                                     loginProvider.password);
 
                             if (errorMessage == null) {
-                              MsgAuth.seeSnackbar('Bienvenido');
                               // ignore: use_build_context_synchronously
                               Navigator.pushReplacementNamed(
                                   context, MyRoutes.rHome);
                             } else {
-                              MsgAuth.seeSnackbar(
-                                  'Correo y/o contraseña invalido!');
                               loginProvider.isLoading = false;
                             }
                           },
@@ -172,7 +170,7 @@ class _loginFormState extends State<_loginForm> {
                         ? const CircularProgressIndicator(
                             color: Colors.white,
                           )
-                        : const Text('INGRESAR'),
+                        : const Text('REGISTRAR'),
                   ),
                 )
               ],
