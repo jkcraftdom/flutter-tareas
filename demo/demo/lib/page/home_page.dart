@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:demo/models/partido.dart';
 import 'package:demo/provider/change_provider.dart';
 import 'package:demo/widgets/hoy_widget.dart';
@@ -83,7 +84,10 @@ class HomePage extends StatelessWidget {
             },
           ),
         ),
-        Visibility(visible: cambio.dato1, child: HoyPartido()),
+        FadeInDown(
+          child: HoyPartido(),
+          animate: cambio.dato1,
+        )
       ]),
     );
   }

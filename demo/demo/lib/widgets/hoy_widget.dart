@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:demo/provider/change_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +32,7 @@ class HoyPartido extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('VS'),
+              const Text('VS'),
               Column(
                 children: [
                   SizedBox(
