@@ -1,14 +1,12 @@
 # AvatarCircle
 
-[![pub package](https://img.shields.io/pub/v/video_player.svg)](https://pub.dev/packages/video_player)
+![screeshot](https://raw.githubusercontent.com/jkcraftdom/flutter-tareas/main/packages/avatar_circle_bapp/screenshot.jpg)
 
 Avatar circle para mostrar un texto o una imagen.
 
 |             | Android|
 |-------------|--------|
 | **Support** | SDK 16+|
-
-![The example app running in iOS](https://github.com/flutter/plugins/blob/main/packages/video_player/video_player/doc/demo_ipod.gif?raw=true)
 
 
 ## Example
